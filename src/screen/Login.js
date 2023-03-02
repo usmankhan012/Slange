@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react'
-import { SafeAreaView, StyleSheet, ImageBackground, Image, View, Text, TouchableOpacity, TextInput, ToastAndroid, KeyboardAvoidingView } from 'react-native';
+import { SafeAreaView, StyleSheet, ImageBackground, Image, View, Text, TouchableOpacity, TextInput, ToastAndroid, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp } from 'react-native-responsive-screen';
 import { ScaledSheet } from 'react-native-size-matters';
 import { images } from '../../assets';
@@ -28,7 +28,7 @@ const Login = ({ navigation }) => {
 
     const ref = React.useRef()
     return (
-        <SafeAreaView style={styles.conatiner}>
+        <ScrollView style={styles.conatiner}>
             <ImageBackground
                 style={styles.imagebackground}
                 source={Imagepath.Imagepath.loginback}
@@ -75,7 +75,7 @@ const Login = ({ navigation }) => {
                 </View>
                 {/* </KeyboardAvoidingView> */}
             </ImageBackground>
-        </SafeAreaView>
+        </ScrollView>
     )
 }
 export default Login

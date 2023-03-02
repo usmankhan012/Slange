@@ -28,6 +28,15 @@ export default {
         search: require('../assets/image/search.png'),
         user: require('../assets/image/user.png'),
         reportimg: require('../assets/image/report.png'),
+        backarrow: require('../assets/image/backarrow.png'),
+        rightarrow: require('../assets/image/rightaroow.png'),
+        aboutimh: require('../assets/image/abouticone.png'),
+        prefrance: require('../assets/image/prefrnce.png'),
+        history: require('../assets/image/history.png'),
+        profile: require('../assets/image/profile.png'),
+        grayvew: require('../assets/image/grayvew.png'),
+        pancil: require('../assets/image/pansil.png'),
+        prefrenseimg: require('../assets/image/prfrensimg.png'),
 
 
 

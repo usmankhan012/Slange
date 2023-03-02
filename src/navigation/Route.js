@@ -18,6 +18,14 @@ import UserProfileData from '../screen/UserProfileData';
 import ForgetPassword from '../screen/ForgetPassword';
 import Otp from '../screen/Otp';
 import NewPassword from '../screen/NewPassword';
+import About from '../screen/About';
+import Privacy_police from '../screen/Privacy_police';
+import Terms_use from '../screen/Terms_use';
+import Open_source from '../screen/Open_source';
+import App_update from '../screen/App_update';
+import Edit_profile from '../screen/Edit_profile';
+import Preferences from '../screen/Preferences';
+// import Timep from '../screen/Timep';
 
 
 const Stack = createNativeStackNavigator();
@@ -37,6 +45,14 @@ function Route() {
                 <Stack.Screen name="ForgetPassword" component={ForgetPassword} />
                 <Stack.Screen name="Otp" component={Otp} />
                 <Stack.Screen name="NewPassword" component={NewPassword} />
+                <Stack.Screen name="About" component={About} />
+                <Stack.Screen name="Privacy_police" component={Privacy_police} />
+                <Stack.Screen name="Terms_use" component={Terms_use} />
+                <Stack.Screen name="Open_source" component={Open_source} />
+                <Stack.Screen name="App_update" component={App_update} />
+                <Stack.Screen name="Edit_profile" component={Edit_profile} />
+                <Stack.Screen name="Preferences" component={Preferences} />
+                {/* <Stack.Screen name="Timep" component={Timep} /> */}
 
 
 

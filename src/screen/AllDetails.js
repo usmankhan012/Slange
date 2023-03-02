@@ -104,11 +104,11 @@ export default AllDetails;
 const styles = ScaledSheet.create({
     flatmenView: {
 
-        
+
         paddingHorizontal: '7@s',
         // margin: '2@s',
         marginTop: '20@s',
-        bottom:'10@s',
+        bottom: '10@s',
         width: widthPercentageToDP(50),
         justifyContent: 'center',
         alignItems: 'center'
@@ -124,7 +124,7 @@ const styles = ScaledSheet.create({
         color: 'red',
         fontSize: '12@s',
         fontWeight: '400',
-        bottom: '4@s'
+        marginTop: 2,
     },
     blaclorem: {
         color: 'black',

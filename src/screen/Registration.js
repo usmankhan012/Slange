@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { SafeAreaView, StyleSheet, ImageBackground, Image, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView } from 'react-native';
+import { SafeAreaView, StyleSheet, ImageBackground, Image, View, Text, TouchableOpacity, TextInput, KeyboardAvoidingView, ScrollView } from 'react-native';
 import { widthPercentageToDP as wp, heightPercentageToDP as hp, } from 'react-native-responsive-screen';
 import { scale, ScaledSheet } from 'react-native-size-matters';
 import { images } from '../../assets';
@@ -7,6 +7,9 @@ import Imagepath from '../assets/Imagepath';
 import DateTimePickerModal from "react-native-modal-datetime-picker";
 import moment from "moment";
 import SelectDropdown from 'react-native-select-dropdown'
+
+
+
 
 export const Registration = ({ navigation }) => {
 
@@ -17,7 +20,7 @@ export const Registration = ({ navigation }) => {
 
 
 
-    const Gender = ["Male", "Female","Other"]
+    const Gender = ["Male", "Female", "Other"]
     const [isDatePickerVisible, setDatePickerVisibility] = useState(false);
 
     const [isdate, setisdate] = useState("Dete of Birth")
@@ -42,90 +45,93 @@ export const Registration = ({ navigation }) => {
 
 
     return (
-        <ImageBackground
-            style={styles.imagebackground}
-            source={Imagepath.Imagepath.registerback}
-            resizeMode={'stretch'}
-        >
-            <View style={styles.Container}>
-                <View style={styles.inputContainer}>
-                    <Text style={styles.titleStyle}>Register</Text>
-                    <TextInput style={styles.inputStyle}
-                        placeholder={'Username'}
-                        placeholderTextColor={'#9E9BA8'}
-                        onSubmitEditing={() => ref1.current.focus()}
-                        autoFocus={false}
-                    />
-                    <TextInput style={styles.inputStyle}
-                        placeholder={'Password'}
-                        placeholderTextColor={'#9E9BA8'}
-                        onSubmitEditing={() => ref2.current.focus()}
-                        ref={ref1}
-                        autoFocus={false}
+        <ScrollView style={{ flex: 1 }}>
+            <ImageBackground
+                style={styles.imagebackground}
+                source={Imagepath.Imagepath.registerback}
+                resizeMode={'stretch'}
+            >
+                <View style={styles.Container}>
+                    <View style={styles.inputContainer}>
+                        <Text style={styles.titleStyle}>Register</Text>
+                        <TextInput style={styles.inputStyle}
+                            placeholder={'Username'}
+                            placeholderTextColor={'#9E9BA8'}
+                            onSubmitEditing={() => ref1.current.focus()}
+                            autoFocus={false}
+                        />
+                        <TextInput style={styles.inputStyle}
+                            placeholder={'Password'}
+                            placeholderTextColor={'#9E9BA8'}
+                            onSubmitEditing={() => ref2.current.focus()}
+                            ref={ref1}
+                            autoFocus={false}
 
-                    />
-                    <TextInput style={styles.inputStyle}
-                        placeholder={'Repeat Password'}
-                        placeholderTextColor={'#9E9BA8'}
-                        ref={ref2}
-                        autoFocus={false}
-
-
-                    />
+                        />
+                        <TextInput style={styles.inputStyle}
+                            placeholder={'Repeat Password'}
+                            placeholderTextColor={'#9E9BA8'}
+                            ref={ref2}
+                            autoFocus={false}
 
 
-                    <TextInput style={styles.inputStyle}
-                        placeholder={'Email'}
-                        placeholderTextColor={'#9E9BA8'}
-                        ref={ref2}
-                        autoFocus={false}
+                        />
 
 
-                    />
-                    <View style={styles.twoBoxConatianer}>
-                        <View style={{ width: '50%', }}>
-                            <TouchableOpacity style={{ width: '96%', height: scale(38), borderRadius: scale(10), alignItems: 'center', justifyContent: 'center', borderColor: '#9E9BA8', borderWidth: 0.5 }} title="Show Date Picker" onPress={showDatePicker} >
-                                <Text style={{ textAlign: 'center' }}>{isdate}</Text>
-                            </TouchableOpacity>
-                            <DateTimePickerModal
-                                isVisible={isDatePickerVisible}
-                                mode="date"
-                                onConfirm={handleConfirm}
-                                onCancel={hideDatePicker}
-                            />
+                        <TextInput style={styles.inputStyle}
+                            placeholder={'Email'}
+                            placeholderTextColor={'#9E9BA8'}
+                            ref={ref2}
+                            autoFocus={false}
+
+
+                        />
+                        <View style={styles.twoBoxConatianer}>
+                            <View style={{ width: '50%', }}>
+                                <TouchableOpacity style={{ width: '96%', height: scale(38), borderRadius: scale(10), alignItems: 'center', justifyContent: 'center', borderColor: '#9E9BA8', borderWidth: 0.5 }} title="Show Date Picker" onPress={showDatePicker} >
+                                    <Text style={{ textAlign: 'center' }}>{isdate}</Text>
+                                </TouchableOpacity>
+                                <DateTimePickerModal
+                                    isVisible={isDatePickerVisible}
+                                    mode="date"
+                                    onConfirm={handleConfirm}
+                                    onCancel={hideDatePicker}
+                                />
+                            </View>
+
+
+                            <View style={{ width: '50%' }}>
+                                <SelectDropdown
+                                    //    searchPlaceHolder={"Search here"}
+                                    //    searchPlaceHolderColor={"#F8F8F8"}
+
+                                    // animationType="slide"
+                                   
+
+                                    data={Gender}
+                                    buttonStyle={styles.buttan}
+                                    buttonTextStyle={{ color: '#000000', alignSelf: 'center' }}
+                                    onSelect={(selectedItem, index) => {
+                                        // console.log(selectedItem, index)
+                                    }}
+                                    dropdownStyle={{ borderRadius: 10, width: 100, marginTop:-36,marginLeft:20,}}
+                                />
+
+                            </View>
                         </View>
-
-
-                        <View style={{ width: '50%' }}>
-                            <SelectDropdown
-                            //    searchPlaceHolder={"Search here"}
-                            //    searchPlaceHolderColor={"#F8F8F8"}
-
-                                // animationType="slide"
-                                dropdownStyle={{ borderRadius: 10, alignSelf: 'center', width: 90, marginLeft: 30 }}
-
-                                data={Gender}
-                                buttonStyle={styles.buttan}
-                                buttonTextStyle={{ color: '#9E9BA8', textAlign: 'center' }}
-                                onSelect={(selectedItem, index) => {
-                                    // console.log(selectedItem, index)
-                                }}
-                            />
-
-                        </View>
+                        <TouchableOpacity onPress={() => navigation.navigate('BottamTab')}
+                            style={styles.buttonStyle} >
+                            <Text style={styles.textStyle}>Register</Text>
+                        </TouchableOpacity>
+                        <TouchableOpacity onPress={() => navigation.navigate('Login')}>
+                            <Text style={styles.bottomText}>Already have an
+                                <Text style={styles.accounttext}>account?</Text> Sign in
+                            </Text>
+                        </TouchableOpacity>
                     </View>
-                    <TouchableOpacity onPress={() => navigation.navigate('BottamTab')}
-                        style={styles.buttonStyle} >
-                        <Text style={styles.textStyle}>Register</Text>
-                    </TouchableOpacity>
-                    <TouchableOpacity onPress={() => navigation.navigate('Login')}>
-                        <Text style={styles.bottomText}>Already have an
-                            <Text style={styles.accounttext}>account?</Text> Sign in
-                        </Text>
-                    </TouchableOpacity>
                 </View>
-            </View>
-        </ImageBackground>
+            </ImageBackground>
+        </ScrollView>
     )
 };
 
@@ -174,10 +180,11 @@ const styles = ScaledSheet.create({
     buttonStyle: {
         width: wp(75),
         paddingLeft: wp(3),
-        marginTop: hp(1.3),
+        
         paddingVertical: hp(1),
         backgroundColor: '#E00A28',
         // borderRadius: wp(2)
+        marginTop:"22@s"
     },
     textStyle: {
         color: 'white',
@@ -212,12 +219,13 @@ const styles = ScaledSheet.create({
     },
     buttan: {
         width: '100%',
-        height: 41,
+        height: 43,
         borderRadius: 10,
         borderWidth: 0.5,
         borderColor: '#9E9BA8',
-        borderStartColor: "unsate"
-
+        backgroundColor: "unsate",
+        alignItems:'center',
+       
 
     },
 })

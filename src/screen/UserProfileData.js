@@ -28,37 +28,32 @@ const UserProfileData = ({ navigation }) => {
                     <Text style={styles.brandname}>Steven McEwan</Text>
                 </View>
             </View>
-            <View>
-                <TouchableOpacity style={styles.UserProfileData}>
-                    <Image style={styles.window} source={Imagepath.Imagepath.Window} />
+            <View style={{marginTop:30}}>
+                <TouchableOpacity style={styles.UserProfileData} onPress={()=>navigation.navigate('Edit_profile')}>
+                    <Image style={styles.window} source={Imagepath.Imagepath.profile} />
                     <View style={styles.profiletextview}>
                         <Text style={styles.profiletext}>Profile</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.UserProfileData2}>
-                    <Image style={styles.window} source={Imagepath.Imagepath.Window} />
+                <TouchableOpacity style={styles.UserProfileData2} onPress={()=>navigation.navigate('Preferences')}>
+                    <Image style={styles.window} source={Imagepath.Imagepath.prefrance} />
                     <View style={styles.profiletextview}>
                         <Text style={styles.profiletext}>Preferences</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.UserProfileData2}>
-                    <Image style={styles.window} source={Imagepath.Imagepath.Window} />
+                <TouchableOpacity style={styles.UserProfileData2} onPress={()=>navigation.navigate('UserProfile')}>
+                    <Image style={styles.window} source={Imagepath.Imagepath.history} />
                     <View style={styles.profiletextview}>
                         <Text style={styles.profiletext}>History</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.UserProfileData2}>
-                    <Image style={styles.window} source={Imagepath.Imagepath.Window} />
+                <TouchableOpacity style={styles.UserProfileData2} onPress={()=>navigation.navigate('About')}>
+                    <Image style={styles.window} source={Imagepath.Imagepath.aboutimh} />
                     <View style={styles.profiletextview}>
                         <Text style={styles.profiletext}>About</Text>
                     </View>
                 </TouchableOpacity>
-                <TouchableOpacity style={styles.UserProfileData2}>
-                    <Image style={styles.window} source={Imagepath.Imagepath.Window} />
-                    <View style={styles.profiletextview}>
-                        <Text style={styles.profiletext}>Policies</Text>
-                    </View>
-                </TouchableOpacity>
+
 
             </View>
         </View>

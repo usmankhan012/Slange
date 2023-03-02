@@ -4,7 +4,7 @@ import { heightPercentageToDP as hp, widthPercentageToDP as wp } from "react-nat
 import { scale, ScaledSheet } from "react-native-size-matters";
 import Imagepath from "../assets/Imagepath";
 
-const HomeScreen = ({ navigation }) => {
+const HomeScreen = (props,{ navigation }) => {
     const onShare = async () => {
         try {
             const result = await Share.share({
@@ -37,7 +37,7 @@ const HomeScreen = ({ navigation }) => {
     }
     const DATA = [
         {
-            brandname: 'McGettigans JLT', screenname: 'BrandDetail', barimg: Imagepath.Imagepath.Bar,
+            brandname: 'McGettigans JLT',marginLeft:20, screenname: 'BrandDetail', barimg: Imagepath.Imagepath.Bar,
             brandImg1: Imagepath.Imagepath.McGetting, markerimg: Imagepath.Imagepath.mapmarker,
             heartImg: Imagepath.Imagepath.heart, shareimg: Imagepath.Imagepath.share,
             report: 'Report', lorem1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus',
@@ -46,7 +46,7 @@ const HomeScreen = ({ navigation }) => {
             morebtn: 'more', id: '1'
         },
         {
-            brandname: 'SHANGRI-LA', screenname: 'UserProfile', barimg: Imagepath.Imagepath.userBar,
+            brandname: 'SHANGRI-LA',marginLeft:-23, screenname: 'UserProfile', barimg: Imagepath.Imagepath.userBar,
             brandImg1: Imagepath.Imagepath.Shangri, markerimg: Imagepath.Imagepath.mapmarker,
             heartImg: Imagepath.Imagepath.heart, shareimg: Imagepath.Imagepath.share,
             report: 'Report', lorem1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus',
@@ -55,7 +55,7 @@ const HomeScreen = ({ navigation }) => {
             morebtn: 'more', id: '2'
         },
         {
-            brandname: 'Cheesecake Factory', screenname: '', barimg: Imagepath.Imagepath.Bar,
+            brandname: 'Cheesecake Factory',marginLeft:40, screenname: '', barimg: Imagepath.Imagepath.Bar,
             brandImg1: Imagepath.Imagepath.CheasFactry, markerimg: Imagepath.Imagepath.mapmarker,
             heartImg: Imagepath.Imagepath.heart, shareimg: Imagepath.Imagepath.share,
             report: 'Report', lorem1: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Phasellus',
@@ -93,10 +93,21 @@ const HomeScreen = ({ navigation }) => {
     const renderItem = ({ item }) => (
         <View style={styles.contener}>
             <View style={styles.flatkistView}>
-                <TouchableOpacity onPress={() => navigation.navigate(item.screenname)}>
-                    <Text style={styles.brandtext}>{item.brandname}</Text>
+                <TouchableOpacity onPress={() =>props. navigation.navigate(item.screenname)}>
+                    <Text style={{fontSize: scale(18),
+        color: '#020202',
+        fontWeight: '500',
+        textAlign: 'center',
+        marginTop: scale(37),
+        marginLeft:item.marginLeft}}>{item.brandname }</Text>
+                   
+
                 </TouchableOpacity>
+             
+
+             
             </View>
+           
             <View>
                 <Image style={styles.barimg} source={item.barimg} />
                 <View style={styles.golview}>
@@ -104,7 +115,7 @@ const HomeScreen = ({ navigation }) => {
                 </View>
 
 
-                <View style={{width:'100%',alignItems:'center',}}>
+                <View style={{width:'100%',alignItems:'center',flexDirection:'row',marginTop:-5}}>
                     <TouchableOpacity 
                         onPress={() => locationbtn(item.id)} style={styles.BottmViewGoal}>
                         <Image style={{ tintColor: location == item.id ? 'red' : 'gray', height: 25, width: 25, resizeMode: 'contain', }} source={item.markerimg} />
@@ -124,12 +135,15 @@ const HomeScreen = ({ navigation }) => {
                     <TouchableOpacity
                         onPress={() => reportbtn()}
                         style={[styles.reportBtn, {
-                            borderWidth: scale(1), borderColor: report == item.id ? 'red' : 'white'
-                        }]}
-                        >
-                     <Image style={{height:30,width:30,resizeMode:'contain'}} source={Imagepath.heart}/>
+                            borderWidth: scale(1), borderColor: report ? 'red' : 'white'
+                        }]}>
+                       <Image style={{height:34,width:30,}} source={Imagepath.Imagepath.reportimg}/>
                     </TouchableOpacity>
+              
 
+                </View>
+                <View style={{marginTop:10,marginLeft:19}}>
+                    <Text style={{fontSize:15,fontWeight:'600'}}>12 Likes</Text>
                 </View>
 
             </View>
@@ -148,12 +162,13 @@ const HomeScreen = ({ navigation }) => {
                     <Text style={styles.blaclorem}>{item.morebtn}</Text>
                 </TouchableOpacity>
             </View>
+            
 
         </View>
     );
     const renderItem2 = ({ item }) => (
         <View style={styles.BeandView}>
-            <TouchableOpacity onPress={() => navigation.navigate(item.screenname)}>
+            <TouchableOpacity onPress={() =>props. navigation.navigate(item.screenname)}>
                 <Image style={styles.firstBrand} source={item.firstlogo} />
             </TouchableOpacity>
 
@@ -226,14 +241,7 @@ const styles = ScaledSheet.create({
         height: hp(0.2),
         // marginTop: '20@s'
     },
-    brandtext: {
-        fontSize: '18@s',
-        color: '#020202',
-        fontWeight: '500',
-        textAlign: 'center',
-        marginTop: '45@s',
-        marginLeft: '10@s'
-    },
+   
     barimg: {
         resizeMode: 'contain',
         marginTop: '6@s',
@@ -265,8 +273,8 @@ const styles = ScaledSheet.create({
         borderRadius: '55@s',
         justifyContent: 'center',
         alignItems: 'center',
-        // borderWidth: '1@s',
-        // borderColor: 'lightgray'
+        elevation:4
+
     },
     BottmViewGoal2: {
         width: wp(13),
@@ -278,8 +286,8 @@ const styles = ScaledSheet.create({
         borderRadius: '55@s',
         justifyContent: 'center',
         alignItems: 'center',
-        // borderWidth: '1@s',
-        // borderColor: 'lightgray'
+        elevation:4
+
     },
     BottmViewGoal3: {
         width: wp(13),
@@ -291,21 +299,25 @@ const styles = ScaledSheet.create({
         borderRadius: '55@s',
         justifyContent: 'center',
         alignItems: 'center',
-        // borderWidth: '1@s',
-        // borderColor: 'lightgray'
+        elevation:4
+
+       
     },
     reportBtn: {
-        width: wp(16),
+        width: wp(10),
         // padding: '1@s',
+       height:hp(4),
         backgroundColor: 'white',
         position: 'absolute',
-        bottom: hp(-1),
-        left: wp(79),
+        bottom: hp(-2.3),
+        left: wp(86),
         borderRadius: '7@s',
         justifyContent: 'center',
         alignItems: 'center',
+        elevation:4
         // borderWidth: '1@s',
         // borderColor: 'red'
+    
     },
     reportT: {
         color: '#E00A28',
@@ -314,7 +326,7 @@ const styles = ScaledSheet.create({
     },
     lorem1View: {
         paddingHorizontal: '12@s',
-        marginTop: scale(15)
+        marginTop: scale(22)
     },
     lorem1View2: {
         paddingHorizontal: '12@s',
@@ -323,7 +335,7 @@ const styles = ScaledSheet.create({
         fontSize: '14@s',
         fontWeight: '400',
         color: '#171717',
-        marginTop: '17@s'
+        marginTop: '-19@s'
     },
     redlorem: {
         color: 'red',
@@ -349,5 +361,6 @@ const styles = ScaledSheet.create({
         width: wp(100),
         height: hp(0.2),
     },
+
 
 })

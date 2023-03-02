@@ -41,28 +41,36 @@ const SingaleDetails = () => {
                 </View>
                 <View>
                     <Image style={styles.barimg} source={Imagepath.Imagepath.Bar} />
+                    <View>
                     <TouchableOpacity
                         onPress={() => locationbtn()} style={styles.BottmViewGoal}>
-                        <Image style={{ tintColor: location ? 'red' : 'gray' }} source={Imagepath.Imagepath.mapmarker} />
+                        <Image style={{ tintColor: location ? 'red' : 'gray', height: 25, width: 25, resizeMode: 'contain' }} source={Imagepath.Imagepath.mapmarker} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => likebtn()}
                         style={styles.BottmViewGoal2}>
-                        <Image style={{ tintColor: like ? 'red' : 'gray' }} source={Imagepath.Imagepath.heart} />
+                        <Image style={{ tintColor: like ? 'red' : 'gray', height: 25, width: 25, resizeMode: 'contain' }} source={Imagepath.Imagepath.heart} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => sharebtn && onShare()}
                         style={styles.BottmViewGoal3}>
-                        <Image style={{ tintColor: share ? 'red' : 'gray' }} source={Imagepath.Imagepath.share} />
+                        <Image style={{ tintColor: share ? 'red' : 'gray', height: 25, width: 25, resizeMode: 'contain' }} source={Imagepath.Imagepath.share} />
                     </TouchableOpacity>
                     <TouchableOpacity
                         onPress={() => reportbtn()}
                         style={[styles.reportBtn, {
                             borderWidth: scale(1), borderColor: report ? 'red' : 'white'
                         }]}>
-                        <Text style={styles.reportT}>Report</Text>
+                       <Image style={{height:28,width:25,resizeMode:'contain'}} source={Imagepath.Imagepath.reportimg}/>
                     </TouchableOpacity>
+                    </View>
                 </View>
+                <View style={{marginTop:10,marginLeft:19}}>
+                    <Text style={{fontSize:15,fontWeight:'600'}}>12 Likes</Text>
+                </View>
+
+
+
                 <View style={styles.lorem1View}>
                     <Text style={styles.lorem1}>Lorem ipsum dolor sit amet, consectetur adipiscing {'\n'}elit. Phasellus</Text>
                 </View>
@@ -124,10 +132,12 @@ const styles = ScaledSheet.create({
         backgroundColor: 'white',
         position: 'absolute',
         bottom: hp(-3.2),
-        left: wp(19),
+        left: wp(26),
         borderRadius: '55@s',
         justifyContent: 'center',
         alignItems: 'center',
+        elevation:4
+
         // borderWidth: '1@s',
         // borderColor: 'lightgray'
     },
@@ -137,10 +147,12 @@ const styles = ScaledSheet.create({
         backgroundColor: 'white',
         position: 'absolute',
         bottom: hp(-3.2),
-        left: wp(37),
+        left: wp(43),
         borderRadius: '55@s',
         justifyContent: 'center',
         alignItems: 'center',
+        elevation:4
+
         // borderWidth: '1@s',
         // borderColor: 'lightgray'
     },
@@ -150,23 +162,28 @@ const styles = ScaledSheet.create({
         backgroundColor: 'white',
         position: 'absolute',
         bottom: hp(-3.2),
-        left: wp(55),
+        left: wp(60),
         borderRadius: '55@s',
         justifyContent: 'center',
         alignItems: 'center',
+        elevation:4
+
         // borderWidth: '1@s',
         // borderColor: 'lightgray'
     },
     reportBtn: {
-        width: wp(16),
+        width: wp(11),
         // padding: '1@s',
+       
         backgroundColor: 'white',
         position: 'absolute',
-        bottom: hp(-1),
-        left: wp(79),
+        bottom: hp(-2.1),
+        left: wp(82),
         borderRadius: '7@s',
         justifyContent: 'center',
         alignItems: 'center',
+        elevation:4
+
         // borderWidth: '1@s',
         // borderColor: 'red'
     },
@@ -186,7 +203,7 @@ const styles = ScaledSheet.create({
         fontSize: '14@s',
         fontWeight: '400',
         color: '#171717',
-        marginTop: '30@s'
+        marginTop: '-10@s'
     },
     redlorem: {
         color: 'red',

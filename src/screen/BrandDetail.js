@@ -11,9 +11,9 @@ const BrandDetail = ({ navigation }) => {
             <StatusBar barStyle={'dark-content'} translucent backgroundColor="transparent" />
             <View style={styles.hederView}>
                 <Image style={styles.frame} source={Imagepath.Imagepath.frame} />
-                <TouchableOpacity onPress={() => navigation.goBack()}>
+                {/* <TouchableOpacity onPress={() => navigation.goBack()}>
                     <Image style={styles.leftarrow} source={Imagepath.Imagepath.leftarrow} />
-                </TouchableOpacity>
+                </TouchableOpacity> */}
                 <TouchableOpacity onPress={() => navigation.navigate('UserProfileData')}>
                     <Image style={styles.menu} source={Imagepath.Imagepath.menu} />
                 </TouchableOpacity>
@@ -55,7 +55,7 @@ const styles = ScaledSheet.create({
         flexDirection: 'row',
         marginTop: '15@s',
         paddingHorizontal: '15@s',
-        // justifyContent:'center',
+        justifyContent:'space-between',
         alignItems: 'center'
     },
     frame: {

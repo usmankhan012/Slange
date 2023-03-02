@@ -6,7 +6,6 @@
  */
 
 import React from 'react';
-import type {PropsWithChildren} from 'react';
 import {
   SafeAreaView,
   ScrollView,
@@ -15,6 +14,7 @@ import {
   Text,
   useColorScheme,
   View,
+  Image
 } from 'react-native';
 import Route from './src/navigation/Route';
 
@@ -24,31 +24,19 @@ const App=()=>{
 
   return (
     <SafeAreaView style={styles.mainvew}>
+            <StatusBar translucent backgroundColor="transparent" barStyle="dark-content" />
+
    <Route/>
     </SafeAreaView>
   );
 }
 
+
+
+export default App;
 const styles = StyleSheet.create({
   mainvew:{
 flex:1
   },
-  sectionContainer: {
-    marginTop: 32,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
 
-export default App;
+});
